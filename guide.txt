@@ -1,0 +1,11 @@
+1 - Crear Auntentificacion de usuarios ⬜
+2 - Validacion de usuarios ⬜
+3 - Registrar nuevo usuario ⬜
+4 - Introducir datos en hoja Excel ⬜
+5 - Modificar celda de Excel ⬜
+6 - Guardar Excel en el servidor ⬜
+7 - Recuperar un archivo Excel en el servidor ⬜
+8 - Actualizar archivo que ha sido recuperado en el servidor ⬜
+9 - Crear varios archivos Excel y relacionar datos ⬜
+10 - Previsualizar archivo Excel ⬜
+11 - Subir archivo Excel ⬜
