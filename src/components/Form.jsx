@@ -21,8 +21,9 @@ const Form = () => {
         "Content-Type": "application/json"
       }
     })
-    const res = response.json()
-    console.log("data: " + res)
+    const datas = await response.json()
+    console.log(datas)
+   
    } catch (error) {
     console.log(error)
    }
@@ -46,7 +47,6 @@ const Form = () => {
               {...register("clientName", {
                 required: true,
                 minLength: 2,
-                maxLength: 20
               })}/>
             </label>
             {errors.clientName?.type == "minLength" && <span className='text-red-400 font-light text-sm'>La longitud minima es de 2 caracteres</span>}
@@ -88,7 +88,7 @@ const Form = () => {
           <div className="grid gap-2">
             <label htmlFor="amount">
               <span className="mr-3">Monto</span>
-              <input className={inputStyles.input} 
+              <input type="number" className={inputStyles.input} 
               {...register("amount", {
                 required: true
               })}/>
@@ -96,7 +96,7 @@ const Form = () => {
             {errors.amount && <span className='text-red-400 font-light text-sm'>Monto requerido</span>}
             <label htmlFor="date">
               <span className="mr-3">Fecha de concesion</span>
-              <input className={inputStyles.input} 
+              <input type="date" className={inputStyles.input} 
               {...register("date", {
                 required: true
               })}/>
