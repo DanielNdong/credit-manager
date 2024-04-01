@@ -35,10 +35,14 @@ const Form = () => {
           <div className="grid gap-2">
             <label htmlFor="agent">
               <span className="mr-3">Agente</span>
-              <input className={inputStyles.input} 
+              <select className={inputStyles.input} 
               {...register("agent", {
                 required: true,                
-              })}/>
+              })}>
+                <option value="omeira">OMEIRA</option>
+                <option value="angeles">ANGELES</option>
+                <option value="leopoldo">LEOPOLDO</option>
+                </select>
             </label>
             {errors.agent && <span className='text-red-400 font-light text-sm'>Nombre del agente requerido</span>}
             <label htmlFor="clientName">
@@ -52,22 +56,22 @@ const Form = () => {
             {errors.clientName?.type == "minLength" && <span className='text-red-400 font-light text-sm'>La longitud minima es de 2 caracteres</span>}
             {errors.clientName?.type == "maxLength" && <span className='text-red-400 font-light text-sm'>La longitud maxima es de 20 requerido</span>}
             {errors.clientName?.type == "required" && <span className='text-red-400 font-light text-sm'>Nombre del cliente requerido</span>}
-            <label htmlFor="sex">
-              <span className="mr-3">Sexo</span>
-              <input className={inputStyles.input} 
+           <div className='flex gap-2'>
+           <span className="mr-3">Sexo:</span>
+             <label htmlFor="hombre">
+              <input type='radio' value='HOMBRE' id="hombre" className={inputStyles.input} 
               {...register("sex", {
                 required: true
-              })}/>
-            </label>
-            {errors.sex && <span className='text-red-400 font-light text-sm'>Tipo de sexo requerido</span>}
-            <label htmlFor="tperson">
-              <span className="mr-3">Tipo de persona</span>
-              <input className={inputStyles.input} 
-              {...register("tperson", {
+              })}/>Hombre
+                  </label>
+                <label htmlFor="mujer">
+              <input type='radio' value='MUJER' id="mujer" className={inputStyles.input} 
+              {...register("sex", {
                 required: true
-              })}/>
+              })}/>Mujer
             </label>
-            {errors.tperson && <span className='text-red-400 font-light text-sm'>Tipo de Persona requerido</span>}
+           </div>
+            {errors.sex && <span className='text-red-400 font-light text-sm'>Tipo de sexo requerido</span>}
             <label htmlFor="cliCode">
               <span className="mr-3">Codigo cliente</span>
               <input className={inputStyles.input} 
@@ -76,6 +80,22 @@ const Form = () => {
               })}/>
             </label>
             {errors.cliCode && <span className='text-red-400 font-light text-sm'>Código del cliente requerido</span>}
+              <div className='flex gap-2'>
+              <span className="mr-3">Tipo de persona:</span>
+            <label htmlFor="fisica">
+              <input type='radio' value='FISICA' id="fisica" className={inputStyles.input} 
+              {...register("tperson", {
+                required: true
+              })}/>Física
+              </label>
+                <label htmlFor="juridica">
+              <input type='radio' value='JURIDICA' id="juridica" className={inputStyles.input} 
+              {...register("tperson", {
+                required: true
+              })}/>Jurídica
+            </label>
+              </div>
+            {errors.tperson && <span className='text-red-400 font-light text-sm'>Tipo de Persona requerido</span>}
             <label htmlFor="cliCompany">
               <span className="mr-3">Empresa cliente</span>
               <input className={inputStyles.input} 
@@ -104,7 +124,7 @@ const Form = () => {
             {errors.date && <span className='text-red-400 font-light text-sm'>Fecha requerida</span>}
             <label htmlFor="period">
               <span className="mr-3">Periodo</span>
-              <input className={inputStyles.input} 
+              <input type="number" className={inputStyles.input} 
               {...register("period", {
                 required: true
               })}/>
