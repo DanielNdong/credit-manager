@@ -114,6 +114,22 @@ const Form = () => {
               })}/>
             </label>
             {errors.amount && <span className='text-red-400 font-light text-sm'>Monto requerido</span>}
+            <label htmlFor="interest">
+              <span className="mr-3">Interés</span>
+              <input type="number" className={inputStyles.input} 
+              {...register("interest", {
+                required: true
+              })}/>
+            </label>
+            {errors.interest && <span className='text-red-400 font-light text-sm'>Interés requerido</span>}
+            <label htmlFor="commissions">
+              <span className="mr-3">Comisiones</span>
+              <input type="number" className={inputStyles.input} 
+              {...register("commissions", {
+                required: true
+              })}/>
+            </label>
+            {errors.interest && <span className='text-red-400 font-light text-sm'>Interés requerido</span>}
             <label htmlFor="date">
               <span className="mr-3">Fecha de concesion</span>
               <input type="date" className={inputStyles.input} 

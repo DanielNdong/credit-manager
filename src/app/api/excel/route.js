@@ -82,21 +82,6 @@ const createExcel = async() => {
     worksheet2.getColumn('H').alignment = { vertical: 'middle', horizontal: 'center' };
     worksheet2.getColumn('I').alignment = { vertical: 'middle', horizontal: 'center' };
 
-    /* 
-    let tipoPersona = [];
-    let tipoProducto = [];
-    let sexo = [];
-    let empresa = [];
-    let situacion = [];
-
-    const rows = [
-      tipoPersona,
-      tipoProducto,
-      sexo,
-      empresa,
-      situacion
-    ]
-    */
    const rows2 = [
     [ 'Tipo Persona', 0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'Físicas',0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -107,6 +92,10 @@ const createExcel = async() => {
     [ 'Sexo', 0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'Hombre',0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'Mujer',0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 'Situacion',0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 'Sano',0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 'Dudoso cobro',0, 0, 0, 0, 0, 0, 0, 0 ],
+    [ 'Mora',0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'Empresa/Entidad',0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'GEOMS',0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'ECOBANK',0, 0, 0, 0, 0, 0, 0, 0 ],
@@ -120,12 +109,36 @@ const createExcel = async() => {
     [ 'EGTC',0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'MINISTERIO HACIENDA',0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'GEPETROL',0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 'Situacion',0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 'Sano',0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 'Dudoso cobro',0, 0, 0, 0, 0, 0, 0, 0 ],
-    [ 'Mora',0, 0, 0, 0, 0, 0, 0, 0 ],
    ];
    const newRows = worksheet2.addRows(rows2);
+
+
+   //Las filas con los totales seran las encargadas de realizar la suma de total de los elementos de cada indicador
+   worksheet2.getCell('C3').value = {formula: "=SUM(C4+C5)"}//TIPO PERSONA
+   worksheet2.getCell('E3').value = {formula: "=SUM(E4+E5)"}//TIPO PERSONA
+   worksheet2.getCell('G3').value = {formula: "=SUM(G4+G5)"}//TIPO PERSONA
+   worksheet2.getCell('I3').value = {formula: "=SUM(I4+I5)"}//TIPO PERSONA
+
+   worksheet2.getCell('C6').value = {formula: "=SUM(C7+C8)"}//TIPO PRODUCTO
+   worksheet2.getCell('E6').value = {formula: "=SUM(E7+E8)"}//TIPO PRODUCTO
+   worksheet2.getCell('G6').value = {formula: "=SUM(G7+G8)"}//TIPO PRODUCTO
+   worksheet2.getCell('I6').value = {formula: "=SUM(I7+I8)"}//TIPO PRODUCTO
+
+   worksheet2.getCell('C9').value = {formula: "=SUM(C10+C11)"}//SEXO
+   worksheet2.getCell('E9').value = {formula: "=SUM(E10+E11)"}//SEXO
+   worksheet2.getCell('G9').value = {formula: "=SUM(G10+G11)"}//SEXO
+   worksheet2.getCell('I9').value = {formula: "=SUM(I10+I11)"}//SEXO
+
+   worksheet2.getCell('C12').value = {formula: `=SUM(C13+C14)`}//${ "siPasaA" == 0 ? '+b' : '' })`};EMPRESA
+   worksheet2.getCell('E12').value = {formula: `=SUM(E13+E14)`}//${ "siPasaA" == 0 ? '+b' : '' })`};EMPRESA
+   worksheet2.getCell('G12').value = {formula: `=SUM(G13+G14)`}//${ "siPasaA" == 0 ? '+b' : '' })`};EMPRESA
+   worksheet2.getCell('I12').value = {formula: `=SUM(I13+I14)`}//${ "siPasaA" == 0 ? '+b' : '' })`};EMPRESA
+
+   worksheet2.getCell('C25').value = {formula: "=SUM(C26+C27+C28)"}//SITUACION
+   worksheet2.getCell('E25').value = {formula: "=SUM(E26+E27+C28)"}//SITUACION
+   worksheet2.getCell('G25').value = {formula: "=SUM(G26+G27+C28)"}//SITUACION
+   worksheet2.getCell('I25').value = {formula: "=SUM(I26+I27+C28)"}//SITUACION
+
 
 
   await workbook.xlsx.writeFile('./public/files/seguimiento-creditos.xlsx')
