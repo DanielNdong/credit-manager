@@ -82,6 +82,21 @@ const createExcel = async() => {
     worksheet2.getColumn('H').alignment = { vertical: 'middle', horizontal: 'center' };
     worksheet2.getColumn('I').alignment = { vertical: 'middle', horizontal: 'center' };
 
+    /* 
+    let tipoPersona = [];
+    let tipoProducto = [];
+    let sexo = [];
+    let empresa = [];
+    let situacion = [];
+
+    const rows = [
+      tipoPersona,
+      tipoProducto,
+      sexo,
+      empresa,
+      situacion
+    ]
+    */
    const rows2 = [
     [ 'Tipo Persona', 0, 0, 0, 0, 0, 0, 0, 0 ],
     [ 'Físicas',0, 0, 0, 0, 0, 0, 0, 0 ],
